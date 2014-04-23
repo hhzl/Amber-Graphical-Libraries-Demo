@@ -51,11 +51,12 @@ return smalltalk.withContext(function($ctx1) {
 canvas=_st(document)._getElementById_("myCanvas");
 _st(paper)._setup_(canvas);
 aPath=self._newPath();
+_st(aPath)._inspect();
 _st(aPath)._strokeColor_("red");
 return self}, function($ctx1) {$ctx1.fill(self,"main",{canvas:canvas,aPath:aPath},globals.Paper2.klass)})},
 args: [],
-source: "main\x0a| canvas aPath | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := self newPath.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath strokeColor: 'red'.",
-messageSends: ["getElementById:", "setup:", "newPath", "strokeColor:"],
+source: "main\x0a| canvas aPath | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := self newPath.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09aPath strokeColor: 'red'.",
+messageSends: ["getElementById:", "setup:", "newPath", "inspect", "strokeColor:"],
 referencedClasses: []
 }),
 globals.Paper2.klass);
@@ -116,10 +117,10 @@ protocol: 'not yet classified',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-aPoint = new paper.Point(100, 100);;
+return new paper.Point(100, 100);;
 return self}, function($ctx1) {$ctx1.fill(self,"newPoint100",{},globals.Paper2.klass)})},
 args: [],
-source: "newPoint100\x0a<aPoint = new paper.Point(100, 100);>",
+source: "newPoint100\x0a<return new paper.Point(100, 100);>",
 messageSends: [],
 referencedClasses: []
 }),
@@ -132,10 +133,10 @@ protocol: 'not yet classified',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-aPoint = new paper.Point(200, 200);;
+return new paper.Point(200, 200);;
 return self}, function($ctx1) {$ctx1.fill(self,"newPoint200",{},globals.Paper2.klass)})},
 args: [],
-source: "newPoint200\x0a<aPoint = new paper.Point(200, 200);>",
+source: "newPoint200\x0a<return new paper.Point(200, 200);>",
 messageSends: [],
 referencedClasses: []
 }),

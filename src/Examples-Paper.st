@@ -42,6 +42,7 @@ main
     aPath := self newPath.
 	
 	"Give the stroke a color"
+	aPath inspect.
 	aPath strokeColor: 'red'.
 !
 
@@ -71,10 +72,10 @@ newPath
 !
 
 newPoint100
-<aPoint = new paper.Point(100, 100);>
+<return new paper.Point(100, 100);>
 !
 
 newPoint200
-<aPoint = new paper.Point(200, 200);>
+<return new paper.Point(200, 200);>
 ! !
 
