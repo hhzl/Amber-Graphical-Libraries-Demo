@@ -7,14 +7,7 @@ How was this project created?
 3. cd Amber-Paper-Demo
 4. delete existing files.
 5. `amber init`
-6. edit bower.json to include
-      
-      "dependencies": {
-          "paper": "*",
-          "amber": "~>= 0.12.4"
-
-7. `bower install`
-
+7. `bower install paper --save`
 8. edit `index.html` and add the following after the body tag
 
           <script type='text/javascript'>
