@@ -8,20 +8,32 @@ How was this project created?
 4. delete existing files.
 5. `amber init`
 7. `bower install paper --save`
-8. edit `index.html` and add the following after the body tag
+8. edit `index.html` and change it to include this
 
-          <script type='text/javascript'>
-          require.config({ paths: { 
-                          'paper': 'bower_components/paper/dist'
-                         }}
-                        );
-          require([
-               'bower_components/paper/dist/paper-full.js'
-              ], function( Paper ){ 
-                    window.Paper=Paper;
-                 }
-          );
-          </script>
+            <script type='text/javascript'>
+              require.config({ paths: {
+                  'AmberPaper': 'src', //mapping compiled .js files and smalltalk source files
+                  paper: 'bower_components/paper/dist'
+              }});
+              require([
+                  'amber/devel',
+                  'paper/paper-full',
+                  'AmberPaper/Examples-Paper'
+              ], function (smalltalk, paper) {
+                  //used for all new packages in IDE
+                  smalltalk.initialize({
+                    'transport.defaultAmdNamespace': "AmberPaper"
+                  });
+
+                  // In case of need of the variable paper
+                  // you can get to the value any time later by just
+                  // require('paper/paper-full') in JavaScript
+                  // or (require value: 'paper/paper-full') in Amber Smalltalk.
+    
+              });
+
+            </script>
+
 
 7. `amber serve`
 8. Open `localhost:4000`
