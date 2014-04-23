@@ -18,8 +18,7 @@
     ],
     "private": false,
     "dependencies": {
-        "paper": "*",
-        "amber": "~>= 0.12.4"
-
+        "amber": "~>= 0.12.4",
+        "paper": "~0.9.18"
     }
 }
