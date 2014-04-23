@@ -15,31 +15,28 @@
   </head>
 
   <body>
-     <script type='text/javascript'>
-      require.config({ paths: {
-        'paper': 'bower_components/paper/dist'
-      }});
-      require([
-               'bower_components/paper/dist/paper-full.js'
-              ], function( Paper ){ 
-                    window.Paper=Paper;
-                 }
-      );
-    </script>
-
     <script type='text/javascript'>
       require.config({ paths: {
-          'AmberPaper': 'src' //mapping compiled .js files and smalltalk source files
+          'AmberPaper': 'src', //mapping compiled .js files and smalltalk source files
+          paper: 'bower_components/paper/dist'
       }});
       require([
           'amber/devel',
+          'paper/paper-full',
           'AmberPaper/Examples-Paper'
-      ], function (smalltalk) {
+      ], function (smalltalk, paper) {
           //used for all new packages in IDE
           smalltalk.initialize({
             'transport.defaultAmdNamespace': "AmberPaper"
           });
+
+          // In case of need of the variable paper 
+          // you can get to the value any time later by just 
+          // require('paper/paper-full') in JavaScript
+          // or (require value: 'paper/paper-full') in Amber Smalltalk.
+
       });
+
     </script>
     <button onclick="require('amber/helpers').globals.Browser._open()">legacy IDE</button>
     <button onclick="require('amber/helpers').popupHelios()">Helios IDE</button>
