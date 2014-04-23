@@ -1,0 +1,25 @@
+{
+    "name": "Examples-Paper",
+    "description": "This project shows how to use paper.js in Amber Smalltalk.",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Hannes Hirzel",
+            "email": "hannes.hirzel@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/hhzl/Amber-Paper-Demo",
+    "keywords": [
+        "Amber",
+        "Smalltalk"
+    ],
+    "license": [
+        "MIT"
+    ],
+    "private": false,
+    "dependencies": {
+        "paper": "*",
+        "amber": "~>= 0.12.4"
+
+    }
+}
