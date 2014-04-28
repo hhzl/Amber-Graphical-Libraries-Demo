@@ -18,13 +18,17 @@
     <script type='text/javascript'>
       require.config({ paths: {
           'AmberPaper': 'src', //mapping compiled .js files and smalltalk source files
-          paper: 'bower_components/paper/dist'
+          paper: 'bower_components/paper/dist',
+          svgjs: 'bower_components/svg.js/dist',
+          fabricjs: 'bower_components/fabric/dist'
       }});
       require([
           'amber/devel',
           'paper/paper-full',
+          'svgjs/svg',
+          'fabricjs/fabric',
           'AmberPaper/Examples-Paper'
-      ], function (smalltalk, paper) {
+      ], function (smalltalk, paper, SVG) {
           //used for all new packages in IDE
           smalltalk.initialize({
             'transport.defaultAmdNamespace': "AmberPaper"
@@ -42,7 +46,11 @@
        <button onclick="require('amber/helpers').globals.Browser._open()">legacy IDE</button>
        <button onclick="require('amber/helpers').popupHelios()">Helios IDE</button>
        <button onclick="require('amber/helpers').globals.Paper1._main()">Paper Demo 1</button>
+       <button onclick="require('amber/helpers').globals.Fabric1._main()">Fabric Demo 1</button>
+       <button onclick="require('amber/helpers').globals.SVG1._main()">SVG Demo 1</button>
     </div>
     <canvas id="myCanvas"></canvas>
+    <div id="drawing"></div>
+
   </body>
 </html>

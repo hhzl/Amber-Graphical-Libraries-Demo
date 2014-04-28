@@ -1,7 +1,14 @@
 Amber-Paper-Demo
 ================
 
-Shows how to include the [paperjs](http://paperjs.org/) JavaScript library in Amber Smalltalk.
+Aim
+---
+
+To demonstrate how JavaScript code of the following graphical libraries is translated into Amber Smalltalk.
+- [paperjs](http://paperjs.org/) 
+- [fabricjs](http://fabricjs.com)
+- [svg.js](http://svgjs.com/)
+
 
 Prerequisites
 -------------

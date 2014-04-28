@@ -1,24 +1,27 @@
 {
-    "name": "Examples-Paper",
-    "description": "This project shows how to use paper.js in Amber Smalltalk.",
-    "version": "0.1.0",
-    "authors": [
-        {
-            "name": "Hannes Hirzel",
-            "email": "hannes.hirzel@gmail.com"
-        }
-    ],
-    "homepage": "https://github.com/hhzl/Amber-Paper-Demo",
-    "keywords": [
-        "Amber",
-        "Smalltalk"
-    ],
-    "license": [
-        "MIT"
-    ],
-    "private": false,
-    "dependencies": {
-        "amber": "~>= 0.12.4",
-        "paper": "~0.9.18"
+  "name": "Examples-Paper",
+  "description": "This project shows how to use paper.js in Amber Smalltalk.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Hannes Hirzel",
+      "email": "hannes.hirzel@gmail.com"
     }
+  ],
+  "homepage": "https://github.com/hhzl/Amber-Paper-Demo",
+  "keywords": [
+    "Amber",
+    "Smalltalk"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "private": false,
+  "dependencies": {
+    "amber": "~>= 0.12.4",
+    "paper": "~0.9.18",
+    "svg.js": "~1.0.0-rc.6",
+    "fabric": "~1.4.5",
+    "snap.svg": "~0.2.0"
+  }
 }
