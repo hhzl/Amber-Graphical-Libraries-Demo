@@ -116,8 +116,13 @@ main
 	
 	"aPath strokeColor: 'red'."
 	
-	start := (paper Point) new.
-	start inspect
+	start := (paper Point) newValue: 100 value: 200.
+	
+	aPath moveTo: start.
+	
+	aPath lineTo: (start add: { 200. -50 }).
+	
+	paper view draw.
 !
 
 mainJS
@@ -139,18 +144,6 @@ mainJS
 		// Draw the view now:
 		paper.view.draw();
 		>
-!
-
-newPath
-<return (new paper.Path());>
-!
-
-newPoint100
-<return new paper.Point(100, 100);>
-!
-
-newPoint200
-<return new paper.Point(200, 200);>
 ! !
 
 Object subclass: #SVG1
