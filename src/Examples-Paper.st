@@ -120,8 +120,7 @@ main
 	
 	aPath moveTo: start.
 	
-	aPath lineTo: (start add: { 200. -50 }).
-	
+	aPath lineTo: (start add: #(200 -50)).
 	paper view draw.
 !
 

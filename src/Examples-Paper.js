@@ -205,11 +205,11 @@ aPath=_st(_st(paper)._Path())._new();
 _st(aPath)._inspect();
 start=_st(_st(paper)._Point())._newValue_value_((100),(200));
 _st(aPath)._moveTo_(start);
-_st(aPath)._lineTo_(_st(start)._add_([(200),(-50)]));
+_st(aPath)._lineTo_(_st(start)._add_([(200), (-50)]));
 _st(_st(paper)._view())._draw();
 return self}, function($ctx1) {$ctx1.fill(self,"main",{canvas:canvas,aPath:aPath,start:start},globals.Paper2.klass)})},
 args: [],
-source: "main\x0a| canvas aPath start | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := (paper Path) new.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09\x0a\x09\x22aPath strokeColor: 'red'.\x22\x0a\x09\x0a\x09start := (paper Point) newValue: 100 value: 200.\x0a\x09\x0a\x09aPath moveTo: start.\x0a\x09\x0a\x09aPath lineTo: (start add: { 200. -50 }).\x0a\x09\x0a\x09paper view draw.\x0a\x09",
+source: "main\x0a| canvas aPath start | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := (paper Path) new.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09\x0a\x09\x22aPath strokeColor: 'red'.\x22\x0a\x09\x0a\x09start := (paper Point) newValue: 100 value: 200.\x0a\x09\x0a\x09aPath moveTo: start.\x0a\x09\x0a\x09aPath lineTo: (start add: #(200 -50)).\x0a\x09paper view draw.\x0a\x09",
 messageSends: ["getElementById:", "setup:", "new", "Path", "inspect", "newValue:value:", "Point", "moveTo:", "lineTo:", "add:", "draw", "view"],
 referencedClasses: []
 }),
