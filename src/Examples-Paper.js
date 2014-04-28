@@ -293,4 +293,29 @@ referencedClasses: ["SVG"]
 }),
 globals.SVG1.klass);
 
+
+smalltalk.addClass('SnapSVG1', globals.Object, [], 'Examples-Paper');
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "main",
+protocol: 'not yet classified',
+fn: function (){
+var self=this;
+var s,bigCircle,smallCircle;
+function $Snap(){return globals.Snap||(typeof Snap=="undefined"?nil:Snap)}
+return smalltalk.withContext(function($ctx1) { 
+s=_st($Snap())._value_value_((300),(600));
+bigCircle=_st(s)._circle_value_value_((150),(150),(100));
+$ctx1.sendIdx["circle:value:value:"]=1;
+_st(bigCircle)._attr_(globals.HashedCollection._newFromPairs_(["fill","#bada55","stroke","#000","strokeWidth",(5)]));
+smallCircle=_st(s)._circle_value_value_((100),(150),(70));
+return self}, function($ctx1) {$ctx1.fill(self,"main",{s:s,bigCircle:bigCircle,smallCircle:smallCircle},globals.SnapSVG1.klass)})},
+args: [],
+source: "main\x0a\x22translation to Smalltalk points 1 to 4 of\x0ahttp://snapsvg.io/start/ \x22\x0a\x0a| s bigCircle smallCircle |\x0a\x0as := Snap value:  300 value: 600.\x0abigCircle := s circle: 150 value: 150 value: 100.\x0abigCircle attr: #{'fill' -> '#bada55'.  'stroke' -> '#000'. 'strokeWidth' -> 5}.\x0asmallCircle := s circle: 100 value: 150 value: 70.",
+messageSends: ["value:value:", "circle:value:value:", "attr:"],
+referencedClasses: ["Snap"]
+}),
+globals.SnapSVG1.klass);
+
 });

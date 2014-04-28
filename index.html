@@ -20,15 +20,17 @@
           'AmberPaper': 'src', //mapping compiled .js files and smalltalk source files
           paper: 'bower_components/paper/dist',
           svgjs: 'bower_components/svg.js/dist',
-          fabricjs: 'bower_components/fabric/dist'
+          fabricjs: 'bower_components/fabric/dist',
+          snapsvg: 'bower_components/snap.svg/dist'
       }});
       require([
           'amber/devel',
           'paper/paper-full',
           'svgjs/svg',
           'fabricjs/fabric',
+          'snapsvg/snap.svg',
           'AmberPaper/Examples-Paper'
-      ], function (smalltalk, paper, SVG) {
+      ], function (smalltalk, paper, SVG, fabric, Snap) {
           //used for all new packages in IDE
           smalltalk.initialize({
             'transport.defaultAmdNamespace': "AmberPaper"
@@ -38,7 +40,7 @@
           // you can get to the value any time later by just 
           // require('paper/paper-full') in JavaScript
           // or (require value: 'paper/paper-full') in Amber Smalltalk.
-
+          console.log(d3);
       });
 
     </script>
@@ -48,6 +50,7 @@
        <button onclick="require('amber/helpers').globals.Paper1._main()">Paper Demo 1</button>
        <button onclick="require('amber/helpers').globals.Fabric1._main()">Fabric Demo 1</button>
        <button onclick="require('amber/helpers').globals.SVG1._main()">SVG Demo 1</button>
+       <button onclick="require('amber/helpers').globals.SnapSVG1._main()">SnapSVG Demo 1</button>
     </div>
     <canvas id="myCanvas"></canvas>
     <div id="drawing"></div>

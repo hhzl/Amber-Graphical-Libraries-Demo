@@ -8,7 +8,7 @@ To demonstrate how JavaScript code of the following graphical libraries is trans
 - [paperjs](http://paperjs.org/) 
 - [fabricjs](http://fabricjs.com)
 - [svg.js](http://svgjs.com/)
-
+- [Snap.svg](http://snapsvg.io) (successor of Raphaeljs for newer browsers)
 
 Prerequisites
 -------------

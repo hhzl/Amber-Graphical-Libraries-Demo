@@ -169,3 +169,21 @@ rect height: 100; fill: '#bbb'; dx: 120.
 (draw rect width: 100) height: 100; fill: '#709'; dx: 240.
 ! !
 
+Object subclass: #SnapSVG1
+	instanceVariableNames: ''
+	package: 'Examples-Paper'!
+
+!SnapSVG1 class methodsFor: 'not yet classified'!
+
+main
+"translation to Smalltalk points 1 to 4 of
+http://snapsvg.io/start/ "
+
+| s bigCircle smallCircle |
+
+s := Snap value:  300 value: 600.
+bigCircle := s circle: 150 value: 150 value: 100.
+bigCircle attr: #{'fill' -> '#bada55'.  'stroke' -> '#000'. 'strokeWidth' -> 5}.
+smallCircle := s circle: 100 value: 150 value: 70.
+! !
+
