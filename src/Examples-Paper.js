@@ -197,17 +197,20 @@ selector: "main",
 protocol: 'not yet classified',
 fn: function (){
 var self=this;
-var canvas,aPath;
+var canvas,aPath,start;
 return smalltalk.withContext(function($ctx1) { 
 canvas=_st(document)._getElementById_("myCanvas");
 _st(paper)._setup_(canvas);
-aPath=self._newPath();
+aPath=_st(_st(paper)._Path())._new();
+$ctx1.sendIdx["new"]=1;
 _st(aPath)._inspect();
-_st(aPath)._strokeColor_("red");
-return self}, function($ctx1) {$ctx1.fill(self,"main",{canvas:canvas,aPath:aPath},globals.Paper2.klass)})},
+$ctx1.sendIdx["inspect"]=1;
+start=_st(_st(paper)._Point())._new();
+_st(start)._inspect();
+return self}, function($ctx1) {$ctx1.fill(self,"main",{canvas:canvas,aPath:aPath,start:start},globals.Paper2.klass)})},
 args: [],
-source: "main\x0a| canvas aPath | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := self newPath.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09aPath strokeColor: 'red'.",
-messageSends: ["getElementById:", "setup:", "newPath", "inspect", "strokeColor:"],
+source: "main\x0a| canvas aPath start | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := (paper Path) new.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09\x0a\x09\x22aPath strokeColor: 'red'.\x22\x0a\x09\x0a\x09start := (paper Point) new.\x0a\x09start inspect",
+messageSends: ["getElementById:", "setup:", "new", "Path", "inspect", "Point"],
 referencedClasses: []
 }),
 globals.Paper2.klass);

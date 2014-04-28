@@ -103,17 +103,21 @@ Object subclass: #Paper2
 !Paper2 class methodsFor: 'not yet classified'!
 
 main
-| canvas aPath | 
+| canvas aPath start | 
    canvas := document getElementById: 'myCanvas'.
    
    "Create an empty project and a view for the canvas:"	
     paper setup: canvas.
 	
-    aPath := self newPath.
+    aPath := (paper Path) new.
 	
 	"Give the stroke a color"
 	aPath inspect.
-	aPath strokeColor: 'red'.
+	
+	"aPath strokeColor: 'red'."
+	
+	start := (paper Point) new.
+	start inspect
 !
 
 mainJS
