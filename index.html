@@ -21,7 +21,8 @@
           paper: 'bower_components/paper/dist',
           svgjs: 'bower_components/svg.js/dist',
           fabricjs: 'bower_components/fabric/dist',
-          snapsvg: 'bower_components/snap.svg/dist'
+          snapsvg: 'bower_components/snap.svg/dist',
+          physicsjs: 'bower_components/physicsjs/dist'
       }});
       require([
           'amber/devel',
@@ -29,8 +30,9 @@
           'svgjs/svg',
           'fabricjs/fabric',
           'snapsvg/snap.svg',
+          'physicsjs/physicsjs-full-0.6.0',
           'AmberPaper/Examples-Paper'
-      ], function (smalltalk, paper, SVG, fabric, Snap) {
+      ], function (smalltalk, paper, SVG, fabric, Snap, Physics) {
           //used for all new packages in IDE
           smalltalk.initialize({
             'transport.defaultAmdNamespace': "AmberPaper"
@@ -40,7 +42,7 @@
           // you can get to the value any time later by just 
           // require('paper/paper-full') in JavaScript
           // or (require value: 'paper/paper-full') in Amber Smalltalk.
-          console.log(d3);
+          console.log(Physics);
       });
 
     </script>

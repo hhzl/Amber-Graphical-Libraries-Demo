@@ -249,6 +249,163 @@ referencedClasses: []
 globals.Paper2.klass);
 
 
+smalltalk.addClass('Physics1', globals.Object, [], 'Examples-Paper');
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "main",
+protocol: 'not yet classified',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+
+
+
+//
+// PhysicsJS
+// A modular, extendable, and easy-to-use physics engine for javascript
+//
+// Use the select box in the top right to see more examples!
+//
+// Smalltalk:
+// | Physics |
+// Physics := (require value: 'physicsjs/physicsjs-full-0.6.0') .
+// JavaScript
+// require('physicsjs/physicsjs-full-0.6.0')
+
+
+var Physics = require('physicsjs/physicsjs-full-0.6.0');
+
+Physics(function (world) {
+
+    var viewWidth = window.innerWidth
+        ,viewHeight = window.innerHeight
+        // center of the window
+        ,center = Physics.vector(viewWidth, viewHeight).mult(0.5)
+        // bounds of the window
+        ,viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight)
+        ,attractor
+        ,edgeBounce
+        ,renderer
+        ;
+
+    // create a renderer
+    renderer = Physics.renderer('canvas', {
+        el: 'viewport'
+        ,width: viewWidth
+        ,height: viewHeight
+    });
+
+    // add the renderer
+    world.add(renderer);
+    // render on each step
+    world.on('step', function () {
+        world.render();
+    });
+
+    // attract bodies to a point
+    attractor = Physics.behavior('attractor', {
+        pos: center
+        ,strength: .1
+        ,order: 1
+    });
+
+    // constrain objects to these bounds
+    edgeBounce = Physics.behavior('edge-collision-detection', {
+        aabb: viewportBounds
+        ,restitution: 0.2
+        ,cof: 0.8
+    });
+
+    // resize events
+    window.addEventListener('resize', function () {
+
+        viewWidth = window.innerWidth;
+        viewHeight = window.innerHeight;
+
+        renderer.el.width = viewWidth;
+        renderer.el.height = viewHeight;
+
+        viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight);
+        // update the boundaries
+        edgeBounce.setAABB(viewportBounds);
+
+    }, true);
+
+    // move the attractor position to match the mouse coords
+    renderer.el.addEventListener('mousemove', function( e ){
+        attractor.position({ x: e.pageX, y: e.pageY });
+    });
+
+    // some fun colors
+    var colors = [
+        '#b58900',
+        '#cb4b16',
+        '#dc322f',
+        '#d33682',
+        '#6c71c4',
+        '#268bd2',
+        '#2aa198',
+        '#859900'
+    ];
+    // create some bodies
+    var l = 10;
+    var bodies = [];
+    var v = Physics.vector(0, 300);
+    var b, r;
+
+    while ( l-- ) {
+        r = (20 + Math.random()*30)|0;
+        b = Physics.body('circle', {
+            radius: r
+            ,mass: r
+            ,x: v.x + center.x
+            ,y: v.y + center.y
+            ,vx: v.perp().mult(0.0001).x
+            ,vx: v.y
+            ,styles: {
+                fillStyle: colors[ l % colors.length ]
+            }
+        });
+        bodies.push(b);
+        v.perp(true)
+            .mult(10000)
+            .rotate(l / 3);
+    }
+
+    // add things to the world
+    world.add( bodies );
+    world.add([
+        Physics.behavior('newtonian', {
+            strength: 0.005
+            ,min: 10
+        })
+        ,Physics.behavior('body-impulse-response')
+        ,edgeBounce
+        ,attractor
+    ]);
+
+    // subscribe to ticker to advance the simulation
+    Physics.util.ticker.on(function( time ) {
+        world.step( time );
+    });
+
+    // start the ticker
+    Physics.util.ticker.start();
+});
+
+// go ahead... expand the code and play around...
+
+;
+return self}, function($ctx1) {$ctx1.fill(self,"main",{},globals.Physics1.klass)})},
+args: [],
+source: "main\x0a<\x0a\x0a\x0a//\x0a// PhysicsJS\x0a// A modular, extendable, and easy-to-use physics engine for javascript\x0a//\x0a// Use the select box in the top right to see more examples!\x0a//\x0a// Smalltalk:\x0a// | Physics |\x0a// Physics := (require value: 'physicsjs/physicsjs-full-0.6.0') .\x0a// JavaScript\x0a// require('physicsjs/physicsjs-full-0.6.0')\x0a\x0a\x0avar Physics = require('physicsjs/physicsjs-full-0.6.0');\x0a\x0aPhysics(function (world) {\x0a\x0a    var viewWidth = window.innerWidth\x0a        ,viewHeight = window.innerHeight\x0a        // center of the window\x0a        ,center = Physics.vector(viewWidth, viewHeight).mult(0.5)\x0a        // bounds of the window\x0a        ,viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight)\x0a        ,attractor\x0a        ,edgeBounce\x0a        ,renderer\x0a        ;\x0a\x0a    // create a renderer\x0a    renderer = Physics.renderer('canvas', {\x0a        el: 'viewport'\x0a        ,width: viewWidth\x0a        ,height: viewHeight\x0a    });\x0a\x0a    // add the renderer\x0a    world.add(renderer);\x0a    // render on each step\x0a    world.on('step', function () {\x0a        world.render();\x0a    });\x0a\x0a    // attract bodies to a point\x0a    attractor = Physics.behavior('attractor', {\x0a        pos: center\x0a        ,strength: .1\x0a        ,order: 1\x0a    });\x0a\x0a    // constrain objects to these bounds\x0a    edgeBounce = Physics.behavior('edge-collision-detection', {\x0a        aabb: viewportBounds\x0a        ,restitution: 0.2\x0a        ,cof: 0.8\x0a    });\x0a\x0a    // resize events\x0a    window.addEventListener('resize', function () {\x0a\x0a        viewWidth = window.innerWidth;\x0a        viewHeight = window.innerHeight;\x0a\x0a        renderer.el.width = viewWidth;\x0a        renderer.el.height = viewHeight;\x0a\x0a        viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight);\x0a        // update the boundaries\x0a        edgeBounce.setAABB(viewportBounds);\x0a\x0a    }, true);\x0a\x0a    // move the attractor position to match the mouse coords\x0a    renderer.el.addEventListener('mousemove', function( e ){\x0a        attractor.position({ x: e.pageX, y: e.pageY });\x0a    });\x0a\x0a    // some fun colors\x0a    var colors = [\x0a        '#b58900',\x0a        '#cb4b16',\x0a        '#dc322f',\x0a        '#d33682',\x0a        '#6c71c4',\x0a        '#268bd2',\x0a        '#2aa198',\x0a        '#859900'\x0a    ];\x0a    // create some bodies\x0a    var l = 10;\x0a    var bodies = [];\x0a    var v = Physics.vector(0, 300);\x0a    var b, r;\x0a\x0a    while ( l-- ) {\x0a        r = (20 + Math.random()*30)|0;\x0a        b = Physics.body('circle', {\x0a            radius: r\x0a            ,mass: r\x0a            ,x: v.x + center.x\x0a            ,y: v.y + center.y\x0a            ,vx: v.perp().mult(0.0001).x\x0a            ,vx: v.y\x0a            ,styles: {\x0a                fillStyle: colors[ l % colors.length ]\x0a            }\x0a        });\x0a        bodies.push(b);\x0a        v.perp(true)\x0a            .mult(10000)\x0a            .rotate(l / 3);\x0a    }\x0a\x0a    // add things to the world\x0a    world.add( bodies );\x0a    world.add([\x0a        Physics.behavior('newtonian', {\x0a            strength: 0.005\x0a            ,min: 10\x0a        })\x0a        ,Physics.behavior('body-impulse-response')\x0a        ,edgeBounce\x0a        ,attractor\x0a    ]);\x0a\x0a    // subscribe to ticker to advance the simulation\x0a    Physics.util.ticker.on(function( time ) {\x0a        world.step( time );\x0a    });\x0a\x0a    // start the ticker\x0a    Physics.util.ticker.start();\x0a});\x0a\x0a// go ahead... expand the code and play around...\x0a\x0a\x0a>",
+messageSends: [],
+referencedClasses: []
+}),
+globals.Physics1.klass);
+
+
 smalltalk.addClass('SVG1', globals.Object, [], 'Examples-Paper');
 
 smalltalk.addMethod(
