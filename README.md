@@ -4,7 +4,8 @@ Amber-Paper-Demo
 Aim
 ---
 
-To demonstrate how JavaScript code of the following graphical libraries is translated into Amber Smalltalk.
+To demonstrate how JavaScript code of the following graphical libraries is translated into [Amber Smalltalk](http://amber-lang.net/).
+
 - [paperjs](http://paperjs.org/) 
 - [fabricjs](http://fabricjs.com)
 - [svg.js](http://svgjs.com/)
