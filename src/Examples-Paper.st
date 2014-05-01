@@ -41,8 +41,30 @@ main
 !
 
 main1
-"http://fabricjs.com/fabric-intro-part-1/"
-(fabric Canvas) inspect
+<
+(function () {
+        var canvas = new fabric.Canvas('myCanvas');
+        canvas.add(new fabric.Circle({ radius: 30, fill: '#2f2', top: 50, left: 50 }));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'green';
+        canvas.selectionLineWidth = 5;
+      
+        canvas.add(new fabric.Circle({ radius: 30, fill: 'yellow', top: 50, left: 125}));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'red';
+        canvas.selectionLineWidth = 5;
+
+      
+        canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 50, left: 200 }));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'red';
+        canvas.selectionLineWidth = 5;
+
+    })();
+	>
 !
 
 mainAsJSON
@@ -67,6 +89,37 @@ rectangle
   height: 20
 });
  >
+! !
+
+Object subclass: #Fabric2
+	instanceVariableNames: ''
+	package: 'Examples-Paper'!
+
+!Fabric2 class methodsFor: 'not yet classified'!
+
+main
+"In the workspace do a prinIt of
+    Fabric2 main
+"	
+
+<
+// Fabric heart
+
+canvas = new fabric.Canvas('myCanvas', { selection: false });
+var path = new fabric.Path("M248.078,5.883c-36.691-14.739-77.771-0.839-98.517,31.125C128.817,5.044,87.735-8.856,51.043,5.883 C9.354,22.632-10.863,70.009,5.887,111.696c16.06,39.98,143.314,139.607,143.314,139.607l0.359,0.28l0.36-0.28 c0,0,127.251-99.627,143.314-139.607C309.986,70.009,289.768,22.632,248.078,5.883z");
+var scale = 100 / path.width;
+ path.set({ left: 20, top: 0, scaleX: scale, scaleY: scale,  fill: 'red', });
+
+var path2 = new fabric.Path("M 0 0 a 25 25 0 1 0 0.00001 0 Z");
+
+path2.set({ left: 200, top: 80, fill: 'yellow', stroke: 'blue', strokeWidth: 8, selectable: false, hasControls: false, hasBorders: false, lockScalingX: true, lockScalingY: true, lockRotation: true });
+
+
+canvas.add(path, path2);
+canvas.renderAll();
+
+return(canvas.toSVG());
+>
 ! !
 
 Object subclass: #Paper1
@@ -103,18 +156,18 @@ Object subclass: #Paper2
 !Paper2 class methodsFor: 'not yet classified'!
 
 main
-| canvas aPath start | 
+| paper canvas aPath start | 
    canvas := document getElementById: 'myCanvas'.
    
    "Create an empty project and a view for the canvas:"	
+    paper := require value: 'paper/paper-full'.
     paper setup: canvas.
 	
-    aPath := (paper Path) new.
+    aPath := paper Path new.
 	
 	"Give the stroke a color"
 	aPath inspect.
-	
-	"aPath strokeColor: 'red'."
+	aPath strokeColor: 'red'.
 	
 	start := (paper Point) newValue: 100 value: 200.
 	

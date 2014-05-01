@@ -81,11 +81,34 @@ protocol: 'not yet classified',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
-_st(_st(fabric)._Canvas())._inspect();
+
+(function () {
+        var canvas = new fabric.Canvas('myCanvas');
+        canvas.add(new fabric.Circle({ radius: 30, fill: '#2f2', top: 50, left: 50 }));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'green';
+        canvas.selectionLineWidth = 5;
+      
+        canvas.add(new fabric.Circle({ radius: 30, fill: 'yellow', top: 50, left: 125}));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'red';
+        canvas.selectionLineWidth = 5;
+
+      
+        canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 50, left: 200 }));
+
+        canvas.selectionColor = 'rgba(0,255,0,0.3)';
+        canvas.selectionBorderColor = 'red';
+        canvas.selectionLineWidth = 5;
+
+    })();
+	;
 return self}, function($ctx1) {$ctx1.fill(self,"main1",{},globals.Fabric1.klass)})},
 args: [],
-source: "main1\x0a\x22http://fabricjs.com/fabric-intro-part-1/\x22\x0a(fabric Canvas) inspect",
-messageSends: ["inspect", "Canvas"],
+source: "main1\x0a<\x0a(function () {\x0a        var canvas = new fabric.Canvas('myCanvas');\x0a        canvas.add(new fabric.Circle({ radius: 30, fill: '#2f2', top: 50, left: 50 }));\x0a\x0a        canvas.selectionColor = 'rgba(0,255,0,0.3)';\x0a        canvas.selectionBorderColor = 'green';\x0a        canvas.selectionLineWidth = 5;\x0a      \x0a        canvas.add(new fabric.Circle({ radius: 30, fill: 'yellow', top: 50, left: 125}));\x0a\x0a        canvas.selectionColor = 'rgba(0,255,0,0.3)';\x0a        canvas.selectionBorderColor = 'red';\x0a        canvas.selectionLineWidth = 5;\x0a\x0a      \x0a        canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 50, left: 200 }));\x0a\x0a        canvas.selectionColor = 'rgba(0,255,0,0.3)';\x0a        canvas.selectionBorderColor = 'red';\x0a        canvas.selectionLineWidth = 5;\x0a\x0a    })();\x0a\x09>",
+messageSends: [],
 referencedClasses: []
 }),
 globals.Fabric1.klass);
@@ -153,6 +176,41 @@ referencedClasses: []
 globals.Fabric1.klass);
 
 
+smalltalk.addClass('Fabric2', globals.Object, [], 'Examples-Paper');
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "main",
+protocol: 'not yet classified',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+
+// Fabric heart
+
+canvas = new fabric.Canvas('myCanvas', { selection: false });
+var path = new fabric.Path("M248.078,5.883c-36.691-14.739-77.771-0.839-98.517,31.125C128.817,5.044,87.735-8.856,51.043,5.883 C9.354,22.632-10.863,70.009,5.887,111.696c16.06,39.98,143.314,139.607,143.314,139.607l0.359,0.28l0.36-0.28 c0,0,127.251-99.627,143.314-139.607C309.986,70.009,289.768,22.632,248.078,5.883z");
+var scale = 100 / path.width;
+ path.set({ left: 20, top: 0, scaleX: scale, scaleY: scale,  fill: 'red', });
+
+var path2 = new fabric.Path("M 0 0 a 25 25 0 1 0 0.00001 0 Z");
+
+path2.set({ left: 200, top: 80, fill: 'yellow', stroke: 'blue', strokeWidth: 8, selectable: false, hasControls: false, hasBorders: false, lockScalingX: true, lockScalingY: true, lockRotation: true });
+
+
+canvas.add(path, path2);
+canvas.renderAll();
+
+return(canvas.toSVG());;
+return self}, function($ctx1) {$ctx1.fill(self,"main",{},globals.Fabric2.klass)})},
+args: [],
+source: "main\x0a\x22In the workspace do a prinIt of\x0a    Fabric2 main\x0a\x22\x09\x0a\x0a<\x0a// Fabric heart\x0a\x0acanvas = new fabric.Canvas('myCanvas', { selection: false });\x0avar path = new fabric.Path(\x22M248.078,5.883c-36.691-14.739-77.771-0.839-98.517,31.125C128.817,5.044,87.735-8.856,51.043,5.883 C9.354,22.632-10.863,70.009,5.887,111.696c16.06,39.98,143.314,139.607,143.314,139.607l0.359,0.28l0.36-0.28 c0,0,127.251-99.627,143.314-139.607C309.986,70.009,289.768,22.632,248.078,5.883z\x22);\x0avar scale = 100 / path.width;\x0a path.set({ left: 20, top: 0, scaleX: scale, scaleY: scale,  fill: 'red', });\x0a\x0avar path2 = new fabric.Path(\x22M 0 0 a 25 25 0 1 0 0.00001 0 Z\x22);\x0a\x0apath2.set({ left: 200, top: 80, fill: 'yellow', stroke: 'blue', strokeWidth: 8, selectable: false, hasControls: false, hasBorders: false, lockScalingX: true, lockScalingY: true, lockRotation: true });\x0a\x0a\x0acanvas.add(path, path2);\x0acanvas.renderAll();\x0a\x0areturn(canvas.toSVG());\x0a>",
+messageSends: [],
+referencedClasses: []
+}),
+globals.Fabric2.klass);
+
+
 smalltalk.addClass('Paper1', globals.Object, [], 'Examples-Paper');
 
 smalltalk.addMethod(
@@ -197,20 +255,22 @@ selector: "main",
 protocol: 'not yet classified',
 fn: function (){
 var self=this;
-var canvas,aPath,start;
+var paper,canvas,aPath,start;
 return smalltalk.withContext(function($ctx1) { 
 canvas=_st(document)._getElementById_("myCanvas");
+paper=_st(require)._value_("paper/paper-full");
 _st(paper)._setup_(canvas);
 aPath=_st(_st(paper)._Path())._new();
 _st(aPath)._inspect();
+_st(aPath)._strokeColor_("red");
 start=_st(_st(paper)._Point())._newValue_value_((100),(200));
 _st(aPath)._moveTo_(start);
 _st(aPath)._lineTo_(_st(start)._add_([(200), (-50)]));
 _st(_st(paper)._view())._draw();
-return self}, function($ctx1) {$ctx1.fill(self,"main",{canvas:canvas,aPath:aPath,start:start},globals.Paper2.klass)})},
+return self}, function($ctx1) {$ctx1.fill(self,"main",{paper:paper,canvas:canvas,aPath:aPath,start:start},globals.Paper2.klass)})},
 args: [],
-source: "main\x0a| canvas aPath start | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := (paper Path) new.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09\x0a\x09\x22aPath strokeColor: 'red'.\x22\x0a\x09\x0a\x09start := (paper Point) newValue: 100 value: 200.\x0a\x09\x0a\x09aPath moveTo: start.\x0a\x09\x0a\x09aPath lineTo: (start add: #(200 -50)).\x0a\x09paper view draw.\x0a\x09",
-messageSends: ["getElementById:", "setup:", "new", "Path", "inspect", "newValue:value:", "Point", "moveTo:", "lineTo:", "add:", "draw", "view"],
+source: "main\x0a| paper canvas aPath start | \x0a   canvas := document getElementById: 'myCanvas'.\x0a   \x0a   \x22Create an empty project and a view for the canvas:\x22\x09\x0a    paper := require value: 'paper/paper-full'.\x0a    paper setup: canvas.\x0a\x09\x0a    aPath := paper Path new.\x0a\x09\x0a\x09\x22Give the stroke a color\x22\x0a\x09aPath inspect.\x0a\x09aPath strokeColor: 'red'.\x0a\x09\x0a\x09start := (paper Point) newValue: 100 value: 200.\x0a\x09\x0a\x09aPath moveTo: start.\x0a\x09\x0a\x09aPath lineTo: (start add: #(200 -50)).\x0a\x09paper view draw.\x0a\x09",
+messageSends: ["getElementById:", "value:", "setup:", "new", "Path", "inspect", "strokeColor:", "newValue:value:", "Point", "moveTo:", "lineTo:", "add:", "draw", "view"],
 referencedClasses: []
 }),
 globals.Paper2.klass);
