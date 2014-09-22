@@ -1,5 +1,5 @@
-Amber-Paper-Demo
-================
+Amber-Graphical-Libraries-Demo
+==============================
 
 Aim
 ---
